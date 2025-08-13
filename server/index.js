@@ -4,9 +4,19 @@ const dotenv = require("dotenv");
 const helmet = require("helmet");
 const morgan = require("morgan");
 const usersRoute = require("./routes/users");
+const authRoute = require("./routes/auth");
 
-const app = express();
 dotenv.config();
+const app = express();
+
+//@Middleware
+app.use(express.json());
+app.use(helmet());
+app.use(morgan("common"));
+
+//@Routes
+app.use("/api/v1/users", usersRoute);
+app.use("/api/v1/auth", authRoute);
 
 // @MongoDB connection (async/await)
 (async () => {
@@ -22,16 +32,10 @@ dotenv.config();
     }
 })();
 
-//@Middleware
-app.use(express.json());
-app.use(helmet());
-app.use(morgan("common"));
 
-//@Routes
-app.use("/api/v1/users", usersRoute);
 
+//@Server
 const PORT = process.env.PORT || 5000; 
-
 app.listen(PORT, () => {
     console.log(`🚀 Server is running on port ${PORT}`);
 });
