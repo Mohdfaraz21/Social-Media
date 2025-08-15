@@ -5,7 +5,7 @@ const helmet = require("helmet");
 const morgan = require("morgan");
 const usersRoute = require("./routes/users");
 const authRoute = require("./routes/auth");
-
+const postRoute = require("./routes/posts");
 dotenv.config();
 const app = express();
 
@@ -17,6 +17,7 @@ app.use(morgan("common"));
 //@Routes
 app.use("/api/v1/users", usersRoute);
 app.use("/api/v1/auth", authRoute);
+app.use("/api/v1/posts", postRoute);
 
 // @MongoDB connection (async/await)
 (async () => {
