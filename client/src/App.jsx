@@ -1,7 +1,9 @@
+import { Home } from "./pages/home/Home";
+
 function App() {
   return (
     <>
-      <div>this is Social Media App</div>
+      <Home />
     </>
   );
 }
