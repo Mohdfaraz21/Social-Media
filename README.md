@@ -6,7 +6,6 @@ A full-stack **Social Media Application** that enables users to connect, share p
 
 ## 🚀 Features
 
-- 🔐 User Authentication (JWT + bcrypt)
 - 📝 Create, Read, Update, Delete (CRUD) posts
 - 📷 Image upload with Multer
 - 👥 Follow/Unfollow functionality
